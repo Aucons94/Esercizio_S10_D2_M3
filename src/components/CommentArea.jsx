@@ -10,7 +10,7 @@ const CommentArea = ({ asin }) => {
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    const getComments = async () => {
+    const fetchBooks = async () => {
       setIsLoading(true);
       try {
         let response = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + asin, {
@@ -37,7 +37,7 @@ const CommentArea = ({ asin }) => {
       }
     };
     if (asin) {
-      getComments();
+      fetchBooks();
     }
   }, [asin]);
 
